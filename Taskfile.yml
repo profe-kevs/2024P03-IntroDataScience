@@ -14,3 +14,7 @@ tasks:
     dir: './Lecciones/L04'
     cmds:
       - quarto preview L04.qmd
+  l05:
+    dir: './Lecciones/L05'
+    cmds:
+      - quarto preview L05.qmd
