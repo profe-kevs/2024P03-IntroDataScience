@@ -1,0 +1,346 @@
+---
+title: Introducción a la Ciencia de Datos
+subtitle: Análisis exploratorio de datos
+format: 
+  clean-revealjs:
+    self-contained: true
+    auto-stretch: false
+author:
+  - name: Kevin A. Hernández Rostrán
+    orcid: 0000-0001-7883-8573
+    email: khernandez4@ucreativa.com
+    affiliations: UCreativa
+date: last-modified
+---
+
+# Análisis exploratorio de datos
+
+## Tipos de datos estruturados
+
+Hay dos tipos básicos de datos estructurados:
+
+-   **Numéricos**
+
+-   **Categóricos**
+
+# Los datos **numéricos**
+
+## Numéricos
+
+Se presentan en dos modalidades:
+
+1.  Datos de carácter **continuo** (continuous), como es el caso de la velocidad del viento o la duración del tiempo.
+2.  Datos de carácter **discreto** (discrete), como el recuento de las veces que ocurre un evento.
+
+## Numéricos
+
+### **Continuos**
+
+Los datos numéricos continuos se caracterizan por poder tomar un **infinito número de valores** dentro de un rango específico. A diferencia de los datos discretos, que solo pueden tomar valores específicos, los datos continuos permiten una mayor precisión en la medición.
+
+-   **La altura de una persona:** Puede medirse en centímetros o metros, y puede tomar cualquier valor dentro de un rango determinado. Por ejemplo, una persona puede medir 1.65 metros, 1.72 metros o cualquier otra medida dentro de ese rango.
+
+-   **La velocidad de un vehículo:** Se mide en kilómetros por hora o metros por segundo, y puede tomar infinitos valores dentro de un rango. Por ejemplo, un vehículo puede ir a 60 kilómetros por hora, 10 metros por segundo o cualquier otro valor dentro de ese rango.
+
+## Numéricos
+
+### **Discretos**
+
+Los datos numéricos discretos, por el contrario, se caracterizan por solo poder tomar **valores específicos y separados**. A diferencia de los datos continuos, que pueden tomar cualquier valor dentro de un rango, los datos discretos **no se pueden subdividir en unidades más pequeñas**.
+
+-   **El número de personas en una habitación:** Puede ser 1, 2, 3, 4, etc., pero no puede ser 1.5 o 2.7.
+
+-   **El número de monedas en una bolsa:** Puede ser 0, 1, 2, 3, etc., pero no puede ser 0.5 o 1.2.
+
+-   **El número de páginas de un libro:** Puede ser 10, 20, 50, 100, etc., pero no puede ser 10.5 o 20.3.
+
+-   **El número de caras de un dado:** Siempre es 6, nunca puede ser 5.8 o 6.1.
+
+# Los datos categóricos
+
+## Categóricos
+
+Los datos categóricos, también conocidos como datos cualitativos, son aquellos que se refieren a **atributos o características que no se pueden medir numéricamente**. A diferencia de los datos numéricos, que se pueden representar en una escala numérica, los datos categóricos se organizan en **categorías o clases**.
+
+Las categorías de los datos categóricos no tienen un orden inherente, y no se pueden realizar operaciones matemáticas con ellas. Sin embargo, son muy útiles para describir y analizar características cualitativas de los datos.
+
+-   Adoptan solo un conjunto fijo de valores, como pueden ser los tipos de pantallas de TV (plasma, LCD, led, etc.) o los nombres de las provincias (San José, Puntarenas, etc.).
+
+## Categóricos
+
+### Binarios
+
+En ciencia de datos, los datos binarios, también conocidos como datos binarios o variables binarias, son un tipo de **dato categórico** que solo puede tomar dos valores posibles, comúnmente representados como **0** y **1**. Estos valores suelen representar dos categorías o clases mutuamente excluyentes, como:
+
+-   **Sí/No:** ¿El usuario ha comprado el producto? (1 = Sí, 0 = No)
+
+-   **Éxito/Fracaso:** ¿El experimento tuvo éxito? (1 = Éxito, 0 = Fracaso)
+
+-   **Defectuoso/No defectuoso:** ¿El producto está defectuoso? (1 = Defectuoso, 0 = No defectuoso)
+
+-   **Activo/Inactivo:** ¿La cuenta de usuario está activa? (1 = Activa, 0 = Inactiva)
+
+## Categóricos
+
+### Ordinales
+
+Los datos ordinales, a diferencia de los datos categóricos, sí tienen un **orden inherente**. Esto significa que las categorías en las que se clasifican los datos ordinales **tienen una relación de mayor o menor que entre sí**. Sin embargo, las diferencias entre las categorías no se pueden medir numéricamente.
+
+En otras palabras, los datos ordinales nos permiten **ordenar los elementos**, pero no nos dicen cuánto difiere uno de otro.
+
+-   **La calificación en una prueba de aptitud:** Puede ser reprobado, aprobado, notable, sobresaliente.
+
+-   **El puesto en una carrera:** Puede ser 1º, 2º, 3º, 4º, etc.
+
+-   **El nivel de dolor:** Puede ser leve, moderado, intenso, insoportable.
+
+## Ideas clave
+
+-   Los datos se clasifican en el software generalmente por tipos.
+
+-   En los tipos de datos están incluidos los numéricos (continuos, discretos) y categóricos (binarios, ordinales).
+
+-   La tipificación de datos en el software actúa como una señal que le indica al software cómo debe procesarlos.
+
+# Datos rectangulares
+
+## Datos rectangulares
+
+Es el término general asociado a una matriz bidimensional con filas que indican registros (**casos**) y columnas que indican características (**variables**).
+
+El marco de datos (**data frame**) es el formato específico en R y Python.
+
+![](images/paste-1.png){width="70%"}
+
+# Estimación de la localización
+
+## Estimación de la localización
+
+Las variables, con los datos medidos o procedentes de recuentos, pueden tener miles de valores distintos. Un paso fundamental para explorar los datos es obtener un "valor típico" para cada característica (**variable**): una estimación de dónde se encuentra la mayoría de los datos (es decir, su tendencia central).
+
+## Media
+
+La estimación más elemental para la localización es el valor medio o promedio (average). Lamedia es la suma de todos los valores dividida por el número de valores.
+
+Consideremos el siguiente conjunto de números: `{3 5 1 2}`.
+
+La media es `(3 + 5 + 1 +2) / 4 = 11/4 = 2.75`.
+
+$$ \text { Media }=\bar{x}=\frac{\sum_{i=1}^n x_i}{n} $$
+
+## Media
+
+### Truncada
+
+La **variación de la media** se conoce como **media truncada** (trimmed mean), que se calcula ignorando un número fijo, en cada extremo, de valores ordenados y a continuación se calcula el promedio de los valores restantes.
+
+$$
+\text { Media truncada }=\bar{x}=\frac{\sum_{i=p+1}^{n-p} x_{(i)}}{n-2 p}
+$$
+
+La media truncada elimina la influencia de valores extremos. Por ejemplo, en el buceo internacional, se eliminan las puntuaciones máxima y mínima de cinco jueces, y la puntuación final es el promedio de las puntuaciones de los tres jueces restantes.
+
+## Media
+
+### Ponderada
+
+Otro tipo de media es la **media ponderada** (weighted mean), que se calcula multiplicando cada valor de datos $x_i$ por el peso $w_i$ especificado por el usuario y dividiendo su suma por la suma de lasponderaciones. La fórmula para una media ponderada es:
+
+$$
+\text { Media ponderada }=\bar{x}_w=\frac{\sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i}
+$$
+
+-   Un motivo para usar la media ponderada es que algunos valores son intrínsecamente más variables que otros, y las observaciones muy variables reciben un peso menor. Por ejemplo, si tomamos el promedio de varios sensores y uno de los sensores es menos preciso, entonces podríamos reducir la ponderación de los datos de ese sensor.
+
+## Mediana
+
+La mediana (median) es el valor central de una lista de datos ordenados de menor a mayor.
+
+Si hay un número par de valores de datos, el valor medio es uno que no está realmente en el conjunto de datos, sino el promedio de los dos valores que dividen los datos ordenados en mitades superior e inferior.
+
+En comparación con la media, que utiliza todas las observaciones, la mediana depende solo de los valores situados en el centro de los datos ordenados.
+
+La mediana es robusta a valores atípicos.
+
+## Mediana
+
+### Ponderada
+
+Por las mismas razones por las que se usa una media ponderada, también es posible calcular una mediana ponderada (weighted median).
+
+Al igual que con la mediana, primero ordenamos los datos, aunque cada valor de los datos tiene una ponderación asociada. En lugar del número del medio, la mediana ponderada es un valor tal que la suma de las ponderaciones es igual para las mitades inferior y superior de la lista ordenada.
+
+## Valores atípicos
+
+A la mediana se le conoce como una **estimación robusta** (robust) de la localización, ya que no está influenciada por valores atípicos (outliers) (casos extremos) que podrían sesgar los resultados. Un **valor atípico** es cualquier valor que está muy lejos de los otros valores en el conjunto de datos.
+
+Cuando los valores atípicos son el resultado de datos incorrectos, la media dará como resultado una estimación deficiente de la localización, mientras que la mediana seguirá siendo válida. Los valores atípicos deben identificarse y, por lo general, merecen una investigación más profunda.
+
+# Ejemplo: estimaciones de localización de la población y tasas de homicidios
+
+## Media, Media truncada y Mediana
+
+Para calcular la media y la mediana con Python, podemos emplear los métodos pandas del marcode datos. La media truncada requiere la función trim_mean de scipy.stats:
+
+``` py
+df['Population'].mean()
+trim_mean(df['Population'], 0.1)
+df['Population']. median)
+```
+
+La media es mayor que la media truncada, que es mayor que la mediana. Esto se debe a que la media truncada excluye los cinco estados más grandes y más pequeños (trim=0.1 ignora el 10% de cada extremo).
+
+## Media o mediana truncada
+
+Si queremos calcular la tasa de homicidios promedio para el país, necesitamos usar una media o mediana ponderadas para dar cuenta de las diferentes poblaciones de los estados.
+
+Con NumPy podemos disponer de la media ponderada. Para la mediana ponderada, podemos usarel paquete especializado wquantiles (<https://pypi.org/project/wquantiles/>):
+
+``` py
+np.average(df['Murder.Rate'], weights=df['Population'])
+wquantiles.median(df['Murder.Rate'], weights=df['Population'])
+```
+
+En este caso, la media ponderada y la mediana ponderada son aproximadamente iguales.
+
+# Estimación de la variabilidad
+
+## Estimación de la variabilidad
+
+La localización es solo una dimensión para extraer el resumen de una característica. Una **segunda dimensión**, la **variabilidad** (variability), ***también conocida como dispersión*** (dispersion), mide el grado de agrupación o dispersión de los valores de los datos. En el corazón de la estadística se encuentra la variabilidad: hay que medirla, reducirla, distinguir la variabilidad aleatoria de la real, identificar las diversas fuentes de variabilidad real y tomar decisiones teniéndola en cuenta.
+
+Así como existen diferentes formas de medir la localización (media, mediana, etc.), también existen diferentes formas de medir la variabilidad.
+
+## Desviaciones
+
+Las estimaciones de la variación más utilizadas se basan en las diferencias o desviaciones(deviations) entre la estimación de la localización y los datos observados. Para un conjunto dedatos `{1, 4, 4}`, la media es `3` y la mediana es `4`. Las desviaciones de la media son las diferencias:
+
+-   `1 - 3 = –2, 4 - 3 = 1, 4 - 3 = 1`.
+
+Estas desviaciones nos dicen lo dispersos están los datos en torno al valor central.
+
+## Desviaciones
+
+### Desviación media absoluta
+
+Una forma de medir la variabilidad es estimar un valor típico para estas desviaciones. El promedio de las desviaciones en sí no nos diría mucho: las desviaciones negativas compensan las positivas. De hecho, la suma de las desviaciones de la media es precisamente cero. En cambio, un enfoque sencillo consiste en extraer el **promedio de los valores absolutos de las desviaciones de la media**.En el ejemplo anterior, el valor absoluto de las desviaciones es `{2 1 1}` y su promedio es `(2 + 1 + 1) / 3 = 1.33`.
+
+$$
+\text { Desviación media absoluta }=\frac{\sum_{i=1}^n\left|x_i-\bar{x}\right|}{n}
+$$
+
+donde $\bar{x}$ es la media muestral
+
+## Deviaciones
+
+### Varianza y Desviación estándar
+
+Las estimaciones de variabilidad más conocidas son la **varianza** (variance) y la **desviación estándar** (standard deviation), que se calculan a partir del cuadrado de las desviaciones.
+
+-   La varianza es un promedio del cuadrado de las desviaciones
+
+    $$
+    \text { Variancia }=s^2=\frac{\sum_{i=1}^n\left(x_i-\bar{x}\right)^2}{n-1}
+    $$
+
+-   La desviación estándar es la raíz cuadrada de la varianza
+
+    $$
+    \text { Desviación estándar }=s=\sqrt{\text{Variancia}}
+    $$
+
+## Percentiles
+
+En un conjunto de datos, el percentil $P$ es un valor tal que al menos el $P$ por ciento de los valores toman este valor o un valor inferior y al menos $(100 -P)$ por ciento de los valores toman este valor o un valor superior.
+
+Por ejemplo, para encontrar el percentil 80, ordenamos los datos. Luego, comenzando por el valor más pequeño, continuamos hasta el 80% del recorrido para llegar al mayor valor. Hay que tener en cuenta que la mediana es lo mismo que el percentil 50.
+
+El percentil es esencialmente lo mismo que el cuantil (quantile), con los cuantiles referenciados por porcentajes (por lo que el cuantil 0.8 es lo mismo que el percentil 80).
+
+## Percentiles
+
+### Rango intercuartílico (IQR)
+
+Una medida habitual de la variabilidad es la diferencia entre el percentil 25 y el percentil 75, al que se llama rango intercuartílico (interquartile range) (o IQR).
+
+Veamos un sencillo ejemplo: `{3,1,5,3,6,7,2,9}`. Los ordenamos para obtener `{1,2,3,3,5,6,7,9}`. El percentil `25` está en `2.5` y el percentil `75` está en `6.5`, por lo que el rango intercuartílico es `6.5 – 2.5 = 4`.
+
+El software puede tener enfoques ligeramente diferentes que producen diferentes respuestas. Normalmente, estas diferencias son mínimas.
+
+# Ejemplo: estimaciones de variabilidad de la población estatal
+
+El marco de datos (data frame) de pandas proporciona métodos para calcular la desviación estándar y los cuantiles. Usando los cuantiles, podemos determinar fácilmente el IQR.
+
+``` py
+df['Population'].std() 
+df['Population'].quantile(0.75) - df['Population'].quantile(0.25)
+```
+
+# Exploración de la distribución de datos
+
+Cada una de las estimaciones que tratamos aquí resume los datos en una sola cifra para describir la localización o la variabilidad de los datos. También es interesante explorar cómo se distribuyen los datos en general.
+
+## Percentiles y diagramas de caja
+
+En Python la proporciona el método quantile del marco de datos de pandas mostrar algunos percentiles de la tasa de homicidios por estados:
+
+``` py
+df['Murder.Rate'].quantile([0.05, 0.25, 0.5, 0.75, 0.95])
+```
+
+La mediana es de `4` homicidios por cada `100 000` habitantes, aunque hay bastante variabilidad: el percentil `5` es solo `1.6` y el percentil `95` es `6.51`.
+
+Los diagramas de caja (boxplots), presentados por Tukey en 1977, utilizan percentiles y permiten visualizar la distribución de datos de una forma rápida.
+
+``` py
+ax = (df['Population']/1_000_000).plot.box()
+ax.set_ylabel('Población (millones)')
+```
+
+## Percentiles y diagramas de caja
+
+:::::: columns
+:::: {.column width="40%"}
+::: {layout="[[-1], [1], [-1]]"}
+![](images/paste-2.png){fig-align="center"}
+:::
+::::
+
+::: {.column width="60%"}
+En este diagrama de caja, la mediana de la población por estados es de alrededor de 5 millones, la mitad de los estados se encuentran entre aproximadamente 2 millones y 7 millones, y hay algunos valores atípicos de altos niveles de población. La parte superior e inferior del cuadro son los percentiles 75 y 25, respectivamente. La mediana se muestra mediante una línea horizontal dentro del cuadro. Las líneas discontinuas,denominadas bigotes (whiskers), se extienden desde las partes superior e inferior del cuadro paraindicar el rango de la mayor parte de los datos.
+:::
+::::::
+
+## Percentiles y diagramas de caja
+
+![](images/paste-3.png){fig-align="center" width="70%"}
+
+## Tablas de frecuencias e histogramas
+
+La tabla de frecuencias de una variable divide el rango de la variable en segmentos igualmente espaciados y nos dice cuántos valores caen dentro de cada segmento.
+
+La función pandas.cut crea una serie que asigna los valores a los segmentos. Mediante el método value_counts, obtenemos la tabla de frecuencias:
+
+``` py
+binnedPopulation = pd.cut(df['Population'], bins=10)
+binnedPopulation.value_counts(sort=False)
+```
+
+El histograma es un modo de visualizar la tabla de frecuencias, con contenedores en el eje x y los valores de los datos en el eje y.
+
+## Tablas de frecuencias e histogramas
+
+Pandas soporta histogramas para marcos de datos con el método DataFrame.plot.hist. Utilizamos el argumento de palabra clave bins para definir el número de contenedores. Los diversos métodos de diagramas proporcionan como resultado un eje de objetos que permite mejorar el ajuste de la visualización mediante Matplotlib:
+
+``` py
+ax = (state['Population'] / 1_000_000).plot.hist(figsize=(4, 4))
+ax.set_xlabel('Población (millones)')
+```
+
+En general, los histogramas se representan gráficamente teniendo en cuenta que:
+
+-   Los contenedores vacíos se incluyen en el gráfico.
+
+-   Los contenedores tienen la misma anchura.
+
+-   Las barras son contiguas: no se muestran espacios vacíos entre las barras, a menos que haya un contenedor vacío.
